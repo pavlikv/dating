@@ -1,0 +1,12 @@
+{
+  "name":"pvashchu/dating",
+  "authors":[
+    {
+      "name":"Pavel Vashchuk",
+      "email":"pvashchuk@mail.greenriver.edu"
+    }
+  ],
+  "require":{
+    "bcosca/fatfree-core":"dev-master"
+  }
+}
