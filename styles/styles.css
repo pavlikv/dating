@@ -7,3 +7,6 @@ p.quote {
 body{
     padding-top: 80px;
 }
+.image{
+    border-radius: 10px;
+}
