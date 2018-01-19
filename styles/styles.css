@@ -1,7 +1,9 @@
 p.quote {
-    color: red;
-    font-size: larger;
+    font-style: italic;
 }
-h1 {
-    color:blue;
+#bold {
+    font-weight: bold;
+}
+body{
+    padding-top: 100px;
 }
