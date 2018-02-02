@@ -14,3 +14,15 @@ body{
     float: right;
     margin-right: 20px;
 }
+
+#rcornernote {
+    border-radius: 10px;
+    border: 2px solid darkgray;
+    background:lightgrey;
+    padding: 20px;
+    width: 400px;
+    height: 125px;
+}
+#policy {
+    color:lightseagreen;
+}

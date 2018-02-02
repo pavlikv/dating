@@ -11,18 +11,54 @@
 
 </head>
 <body>
-    <p>First Name: {{@firstName}}</p>
-    <p>Last Name: {{@lastName}}</p>
-    <p>Age: {{@age}}</p>
-    <p>Gender: {{@gender}}</p>
-    <p>Phone: {{@phone}}</p>
+<div class="container-fluid" style="padding-left: 35px">
 
-    <p>Email: {{@email}}</p>
-    <p>State: {{@state}}</p>
-    <p>Seeking: {{@seeking}}</p>
-    <p>Bio: {{@bio}}</p>
+    <div class="row">
 
-    <p>Indoor: {{@indoor}}</p>
+        <div class="col-lg-6 ">
+            <table class="table table-bordered">
+                <tr>
+                    <td>Name: {{ @firstName }} {{ @lastName }}</td>
+                </tr>
+                <tr>
+                    <td>Gender: {{ @gender }}</td>
+                </tr>
+                <tr>
+                    <td>Age: {{ @age }}</td>
+                </tr>
+                <tr>
+                    <td>Phone: {{ @phone }}</td>
+                </tr>
+                <tr>
+                    <td>Email: {{ @email }}</td>
+                </tr>
+                <tr>
+                    <td>State: {{ @state }}</td>
+                </tr>
+                <tr>
+                    <td>Seeking: {{ @seeking }}</td>
+                </tr>
+                <tr>
+                    <td>Interests: {{ @indoor }} {{ @outdoor }}</td>
+                </tr>
+
+            </table>
+        </div>
+
+        <div class="col-lg-6 ">
+            <img src="images/blankprofile.png" class="image" alt="blank profile picture" height="400" width="400">
+
+            <h4>Biography</h4>
+            <p>{{ @bio }}</p>
+
+        </div>
+        <div style="align-items: center">
+            <button class="btn btn-primary btn-lg" type="submit">Contact Me!</button>
+        </div>
+    </div>
+</div>
+
+
 
 
 
