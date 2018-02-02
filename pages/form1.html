@@ -11,16 +11,41 @@
 </head>
 <body>
 
+<div class="container-fluid" style="padding-left: 35px">
+    <h1>Personal Information</h1>
+    <hr>
     <form action="form2" method="post">
-        First Name <input type="text" name="firstName"></br>
-        Last Name <input type="text" name="lastName"></br>
-        Age <input type="text" name="age"></br>
-        Gender<input type="radio" name="gender" value="male"> Male
-        <input type="radio" name="gender" value="female"> Female<br>
-        Phone Number <input type="text" name="phone"></br>
-        <button type="submit" size="">Next</button>
-    </form>
+    <div class="row">
 
+
+
+        <div class="col-lg-6 ">
+
+                <h5>First Name</h5>
+                <input class="form-control" type="text" name="firstName"></br>
+                <h5>Last Name</h5>
+                <input class="form-control" type="text" name="lastName"></br>
+                <h5>Age</h5>
+                <input class="form-control" type="text" name="age"></br>
+                <h5>Gender</h5>
+                <label class="radio-inline"><input type="radio" name="gender" value="male"> Male</label>&nbsp;&nbsp;
+                <label class="radio-inline"><input type="radio" name="gender" value="female"> Female</label><br>
+                <h5>Phone Number</h5>
+                <input class="form-control" type="text" name="phone"></br>
+
+
+        </div>
+
+        <div class="col-lg-6">
+            <h4>Test</h4>
+
+        </div>
+    </div>
+        <div>
+            <button class="btn btn-primary" type="submit">Next ></button>
+        </div>
+    </form>
+</div>
 
 
 <!-- Optional JavaScript -->

@@ -12,18 +12,43 @@
 
 </head>
 <body>
-    <form action="form3" method="post">
-        Email <input type="text" name="email"></br>
-        State <select name="state">
-            <option value="washington">Washington</option>
-            <option value="oregon">Oregon</option>
-        </select></br>
-        Seeking <input type="radio" name="gender" value="male"> Male
-        <input type="radio" name="gender" value="female"> Female<br>
-        Biography <textarea name="comment" >Enter text here...</textarea></br>
-        <button type="submit">Next</button>
-    </form>
 
+<div class="container-fluid" style="padding-left: 35px">
+    <h1>Profile</h1>
+    <hr>
+    <form action="form3" method="post">
+    <div class="row">
+
+
+        <div class="col-lg-6 ">
+
+            <h5>Email</h5>
+            <input class="form-control" type="text" name="email"></br>
+            <h5>State</h5>
+            <select class="form-control" name="state">
+                <option value="washington">Washington</option>
+                <option value="oregon">Oregon</option>
+            </select></br>
+            <h5>Seeking</h5>
+            <input type="radio" name="gender" value="male"> Male&nbsp;&nbsp;
+            <input type="radio" name="gender" value="female"> Female<br>
+
+        </div>
+
+        <div class="col-lg-6">
+            <h5>Biography</h5>
+            <textarea class="form-control" rows="5" id="comment" name="bio"></textarea></br>
+
+
+        </div>
+
+
+    </div>
+        <div>
+            <button class="btn btn-primary" type="submit">Next ></button>
+        </div>
+    </form>
+</div>
 
 
 
