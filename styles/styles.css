@@ -5,7 +5,7 @@ p.quote {
     font-weight: bold;
 }
 body{
-    padding-top: 80px;
+    padding-top: 0px;
 }
 .image{
     border-radius: 10px;
@@ -25,4 +25,9 @@ body{
 }
 #policy {
     color:lightseagreen;
+}
+
+#nav-bar {
+    background-color: lightgrey;
+    font-weight: bold;
 }
