@@ -37,3 +37,25 @@ function validIndoor($listOfIndoor) {
     }
     return true;
 }
+
+$errors = array();
+$success = false;
+
+if(!validName($name)) {
+    $errors['name'] = "Please enter a valid name";
+}
+if(!validAge($age)) {
+    $errors['color'] = "Please enter a valid age";
+}
+if(!validPhone($phone)) {
+    $errors['color'] = "Please enter a valid phone";
+}
+if(!validOutdoor($indoors)) {
+    $errors['color'] = "Please enter a valid indoor activities";
+}
+if(!validIndoor($outdoors)) {
+    $errors['color'] = "Please enter a valid outdoor activites";
+}
+else{
+    $success = true;
+}
