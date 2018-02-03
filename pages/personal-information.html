@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Personal Information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="styles/styles.css">
+
+</head>
+<body>
+<include href="pages/navigation.html" />
+<div class="container-fluid" style="padding-left: 35px">
+    <h1>Personal Information</h1>
+    <hr>
+    <form action="profile-info" method="post">
+    <div class="row">
+
+
+
+        <div class="col-lg-8 ">
+
+
+            <label for="firstName" class="font-weight-bold">First Name
+                <check if="{{ isset(@invalidFirstName) }}">
+                    <span class="error font-weight-normal"> - Please enter a valid first name</span>
+                </check>
+            </label>
+            <input class="form-control" type="text" id="firstName" name="firstName"
+                <check if="{{ isset(@firstName) }}">
+                    value="{{ @firstName }}"
+                </check>></br>
+            <label for="lastName" class="font-weight-bold">Last Name
+                <check if="{{ isset(@invalidLastName) }}">
+                    <span class="error font-weight-normal"> - Please enter a valid last name</span>
+                </check>
+            </label>
+                <input class="form-control" type="text" id="lastName" name="lastName"
+            <check if="{{ isset(@lastName) }}">
+                value="{{ @lastName }}"
+            </check>></br>
+            <label for="age" class="font-weight-bold">Age
+                <check if="{{ isset(@invalidAge) }}">
+                    <span class="error font-weight-normal"> - You must be 18 or older</span>
+                </check>
+            </label>
+                <input class="form-control" type="text" id="age" name="age"
+            <check if="{{ isset(@age) }}">
+                value="{{ @age }}"
+            </check>></br>
+                <h5>Gender</h5>
+                <label class="radio-inline"><input type="radio" name="gender" value="male" <check if="{{ @gender == male }}">checked="checked"</check>> Male</label>&nbsp;&nbsp;
+                <label class="radio-inline"><input type="radio" name="gender" value="female" <check if="{{ @gender == female }}">checked="checked"</check>> Female</label><br>
+            <label for="phone" class="font-weight-bold">Phone Number
+                <check if="{{ isset(@invalidPhone) }}">
+                    <span class="error font-weight-normal"> - Please enter a valid phone number</span>
+                </check>
+            </label>
+                <input class="form-control" type="text" id="phone" name="phone"
+            <check if="{{ isset(@phone) }}">
+                value="{{ @phone }}"
+            </check>></br>
+
+        </div>
+
+
+        <div class="col-lg-4">
+            <p id="rcornernote"><span id="bold">Note:</span> All information entered is protected by our
+                <span id="policy">privacy policy</span>. Profile information can only be viewed by
+                others with your permission.</p>
+
+        </div>
+    </div>
+        <div>
+
+            <button type="submit" name="submit" value="submit" class="btn btn-primary" id="formbutton">Next ></button>
+        </div>
+    </form>
+</div>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

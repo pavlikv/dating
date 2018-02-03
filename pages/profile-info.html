@@ -16,7 +16,7 @@
 <div class="container-fluid" style="padding-left: 35px">
     <h1>Profile</h1>
     <hr>
-    <form action="form3" method="post">
+    <form action="interests" method="post">
     <div class="row">
 
 
@@ -32,8 +32,8 @@
                 </repeat>
             </select></br>
             <h5>Seeking</h5>
-            <input type="radio" name="seeking" value="male"> Male&nbsp;&nbsp;
-            <input type="radio" name="seeking" value="female"> Female<br>
+            <input type="radio" name="seeking" value="male" <check if="{{ @seeking == male }}">checked="checked"</check>> Male&nbsp;&nbsp;
+            <input type="radio" name="seeking" value="female" <check if="{{ @seeking == female }}">checked="checked"</check>> Female<br>
 
         </div>
 
@@ -47,7 +47,7 @@
 
     </div>
         <div>
-            <button class="btn btn-primary" type="submit" id="formbutton" name="submit">Next ></button>
+            <button type="submit" name="submit" value="submit" class="btn btn-primary" id="formbutton">Next ></button>
         </div>
     </form>
 </div>

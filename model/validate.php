@@ -14,8 +14,12 @@ function validAge($age) {
     return (is_numeric($age) && $age >= 18);
 }
 
-function validPhone($phone){
-    return preg_match("/^[0-9]{3}-[0-9]{4}-[0-9]{4}$/", $phone);
+function validPhone($phone) {
+    $phone = str_replace('-', '', $phone);
+    $phone = str_replace(' ', '', $phone);
+    $phone = str_replace('(', '', $phone);
+    $phone = str_replace(')', '', $phone);
+    return (is_numeric($phone) && (strlen($phone) > 9 && (strlen($phone) < 16)));
 }
 
 function validOutdoor($listOfOutdoor) {
@@ -36,26 +40,4 @@ function validIndoor($listOfIndoor) {
         }
     }
     return true;
-}
-
-$errors = array();
-$success = false;
-
-if(!validName($name)) {
-    $errors['name'] = "Please enter a valid name";
-}
-if(!validAge($age)) {
-    $errors['color'] = "Please enter a valid age";
-}
-if(!validPhone($phone)) {
-    $errors['color'] = "Please enter a valid phone";
-}
-if(!validOutdoor($indoors)) {
-    $errors['color'] = "Please enter a valid indoor activities";
-}
-if(!validIndoor($outdoors)) {
-    $errors['color'] = "Please enter a valid outdoor activites";
-}
-else{
-    $success = true;
 }
