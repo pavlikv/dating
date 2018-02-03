@@ -16,6 +16,8 @@ require_once ('vendor/autoload.php');
 //create an instance of the Base class
 $f3 = Base::instance();
 
+$f3->set('states', array('Washington', 'Oregon', 'California'));
+
 //set debug level
 $f3->set('DEBUG', 3);
 
