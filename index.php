@@ -44,11 +44,13 @@ $f3->route('GET|POST /profile-info', function($f3) {
         $age = $_SESSION['age'] = $_POST['age'];
         $_SESSION['gender'] = $_POST['gender'];
         $phone = $_SESSION['phone'] = $_POST['phone'];
+        $_SESSION['premium'] = $_POST['premium'];
         $f3->set('firstName', $_SESSION['firstName']);
         $f3->set('lastName', $_SESSION['lastName']);
         $f3->set('age', $_SESSION['age']);
         $f3->set('gender', $_SESSION['gender']);
         $f3->set('phone', $_SESSION['phone']);
+        $f3->set('premium', $_SESSION['premium']);
         include('model/validate.php');
         $isValid = true;
         if (!validName($first)) {
@@ -80,17 +82,30 @@ $f3->route('GET|POST /profile-info', function($f3) {
 );
 //define a route
 $f3->route('GET|POST /interests', function($f3) {
+    $template = new Template();
+
     $_SESSION['email'] = $_POST['email'];
     $_SESSION['seeking'] = $_POST['seeking'];
     $_SESSION['state'] = $_POST['state'];
     $_SESSION['bio'] = $_POST['bio'];
 
+    $f3->set('firstName', $_SESSION['firstName']);
+    $f3->set('lastName', $_SESSION['lastName']);
+    $f3->set('age', $_SESSION['age']);
+    $f3->set('gender', $_SESSION['gender']);
+    $f3->set('phone', $_SESSION['phone']);
+    $f3->set('premium', $_SESSION['premium']);
     $f3->set('email', $_SESSION['email']);
     $f3->set('seeking', $_SESSION['seeking']);
     $f3->set('state', $_SESSION['state']);
     $f3->set('bio', $_SESSION['bio']);
-    $template = new Template();
-    echo $template->render('pages/interests.html');
+
+    if(isset($_SESSION['premium'])) {
+        echo $template->render('pages/interests.html');
+    } else {
+        echo $template->render('pages/formSummary.html');
+    }
+
 }
 );
 //define a route
@@ -106,6 +121,7 @@ $f3->route('GET|POST /formSummary', function($f3) {
         $f3->set('age', $_SESSION['age']);
         $f3->set('gender', $_SESSION['gender']);
         $f3->set('phone', $_SESSION['phone']);
+        $f3->set('premium', $_SESSION['premium']);
         $f3->set('email', $_SESSION['email']);
         $f3->set('seeking', $_SESSION['seeking']);
         $f3->set('state', $_SESSION['state']);
