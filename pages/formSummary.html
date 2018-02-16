@@ -39,6 +39,7 @@
                 <tr>
                     <td>Seeking: {{ @seeking }}</td>
                 </tr>
+                <check if="{{ isset(@premium)}}">
                 <tr>
                     <td>Interests:
                         <repeat group="{{ @indoors }}" value="{{ @indoor }}">
@@ -50,6 +51,7 @@
                     </td>
 
                 </tr>
+                </check>
 
             </table>
         </div>

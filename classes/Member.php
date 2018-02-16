@@ -9,96 +9,93 @@
 class Member
 {
 
-    private $_fname; //string
-    private $_lname; //string
-    private $_age; //int
-    private $_gender;//string
-    private $_phone; //string
-    private $_email;//string
-    private $_state; //string
-    private $_seeking;//string
-    private $_bio; //string
+    protected $fname; //string
+    protected $lname; //string
+    protected $age; //int
+    protected $gender;//string
+    protected $phone; //string
+    protected $email;//string
+    protected $state; //string
+    protected $seeking;//string
+    protected $bio; //string
 
-    function __construct($firstName, $lastName, $age, $gender, $phone, $email, $state, $seeking, $bio){
-        $this->_fname = $firstName;
-        $this->_lname = $lastName;
-        $this->_age = $age;
-        $this->_gender = $gender;
-        $this->_phone = $phone;
-        $this->_email = $email;
-        $this->_state = $state;
-        $this->_seeking = $seeking;
-        $this->_bio = $bio;
+    public function __construct($fname, $lname, $age, $gender, $phone)
+    {
+        $this->fname = $fname;
+        $this->lname = $lname;
+        $this->age = $age;
+        $this->gender = $gender;
+        $this->phone = $phone;
     }
 
     function getFname() {
-        return $this->_fname;
+        return $this->fname;
     }
     function setFname($name){
-        $this->_fname = $name;
+        $this->fname = $name;
     }
 
 
     function getLname() {
-        return $this->_lname;
+        return $this->lname;
     }
     function setLname($name){
-        $this->_lname = $name;
+        $this->lname = $name;
     }
 
 
     function getAge() {
-        return $this->_age;
+        return $this->age;
     }
     function setAge($newAge){
-        $this->_age = $newAge;
+        $this->age = $newAge;
     }
 
 
     function getGender() {
-        return $this->_gender;
+        return $this->gender;
     }
     function setGender($newGender){
-        $this->_gender = $newGender;
+        $this->gender = $newGender;
     }
 
 
     function getPhone() {
-        return $this->_phone;
+        return $this->phone;
     }
     function setPhone($newPhone){
-        $this->_phone = $newPhone;
+        $this->phone = $newPhone;
     }
 
 
     function getEmail() {
-        return $this->_email;
+        return $this->email;
     }
     function setEmail($newEmail){
-        $this->_email = $newEmail;
+        $this->email = $newEmail;
     }
 
 
     function getState() {
-        return $this->_state;
+        return $this->state;
     }
     function setState($newState){
-        $this->_state = $newState;
+        $this->state = $newState;
     }
 
 
     function getSeeking() {
-        return $this->_seeking;
+        return $this->seeking;
     }
     function setSeeking($newSeeking){
-        $this->_seeking = $newSeeking;
+        $this->seeking = $newSeeking;
     }
 
 
     function getBio() {
-        return $this->_bio;
+        return $this->bio;
     }
     function setBio($newBio){
-        $this->_bio = $newBio;
+        $this->bio = $newBio;
     }
 }
