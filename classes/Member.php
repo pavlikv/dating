@@ -1,8 +1,7 @@
-
 <?php
 /**
  * Created by PhpStorm.
- * User: Pavel Vashchuk
+ * User: Pavel
  * Date: 2/12/18
  * Time: 11:10 AM
  */
@@ -69,8 +68,8 @@ class Member
      * Setter method for the last name
      * @param $name, new last name
      */
-    function setLname($name1){
-        $this->lname = $name1;
+    function setLname($name){
+        $this->lname = $name;
     }
 
     /**
