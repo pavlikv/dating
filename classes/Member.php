@@ -1,11 +1,16 @@
+
 <?php
 /**
  * Created by PhpStorm.
- * User: Pavel
+ * User: Pavel Vashchuk
  * Date: 2/12/18
  * Time: 11:10 AM
  */
 
+/**
+ * Member class.
+ * creates a member frm the dating website
+ */
 class Member
 {
 
@@ -19,6 +24,14 @@ class Member
     protected $seeking;//string
     protected $bio; //string
 
+    /**
+     * Member constructor.
+     * @param $fname first name
+     * @param $lname, last name
+     * @param $age, age of the user
+     * @param $gender, gender of the user
+     * @param $phone, phone number
+     */
     public function __construct($fname, $lname, $age, $gender, $phone)
     {
         $this->fname = $fname;
@@ -28,73 +41,147 @@ class Member
         $this->phone = $phone;
     }
 
+    /**
+     * getter method for the first name
+     * @return first name
+     */
     function getFname() {
         return $this->fname;
     }
+
+    /**
+     * Setter method for the first name
+     * @param $name
+     */
     function setFname($name){
         $this->fname = $name;
     }
 
-
+    /**
+     * Getter method for last name
+     * @return lname, last name
+     */
     function getLname() {
         return $this->lname;
     }
-    function setLname($name){
-        $this->lname = $name;
+
+    /**
+     * Setter method for the last name
+     * @param $name, new last name
+     */
+    function setLname($name1){
+        $this->lname = $name1;
     }
 
-
+    /**
+     * Getter method for the age
+     * @return age
+     */
     function getAge() {
         return $this->age;
     }
+
+    /**
+     * Setter method for age
+     * @param $newAge
+     */
     function setAge($newAge){
         $this->age = $newAge;
     }
 
 
+    /**
+     * getter method for the gender
+     * @return gender
+     */
     function getGender() {
         return $this->gender;
     }
+
+    /**
+     * Setter method for gender
+     * @param $newGender
+     */
     function setGender($newGender){
         $this->gender = $newGender;
     }
 
-
+    /**
+     * Getter method for phone
+     * @return phone
+     */
     function getPhone() {
         return $this->phone;
     }
+
+    /**
+     * Setter method for phone
+     * @param $newPhone
+     */
     function setPhone($newPhone){
         $this->phone = $newPhone;
     }
 
-
+    /**
+     * Getter method for email
+     * @return email
+     */
     function getEmail() {
         return $this->email;
     }
+
+    /**
+     * Setter method for email
+     * @param $newEmail
+     */
     function setEmail($newEmail){
         $this->email = $newEmail;
     }
 
-
+    /**
+     * Getter method for state
+     * @return state
+     */
     function getState() {
         return $this->state;
     }
+
+    /**
+     * Setter method for state
+     * @param $newState
+     */
     function setState($newState){
         $this->state = $newState;
     }
 
-
+    /**
+     * Getter method for seeking
+     * @return seeking
+     */
     function getSeeking() {
         return $this->seeking;
     }
+
+    /**
+     * Setter method for seeking
+     * @param $newSeeking
+     */
     function setSeeking($newSeeking){
         $this->seeking = $newSeeking;
     }
 
-
+    /**
+     * Getter method for the bio
+     * @return bio
+     */
     function getBio() {
         return $this->bio;
     }
+
+    /**
+     * Setter method for the bio
+     * @param $newBio
+     */
     function setBio($newBio){
         $this->bio = $newBio;
     }
