@@ -10,7 +10,8 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 //require the autoload file
-require_once ('vendor/autoload.php');
+require_once 'vendor/autoload.php';
+
 session_start();
 
 //create an instance of the Base class
@@ -22,7 +23,7 @@ $f3->set('states', array('Washington', 'Oregon', 'California'));
 $f3->set('DEBUG', 3);
 
 //connect to database
-$dbh = connect();
+$dbh = new dbfunctions();
 
 //define a default route
 $f3->route('GET /', function() {
