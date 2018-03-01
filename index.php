@@ -21,6 +21,9 @@ $f3->set('states', array('Washington', 'Oregon', 'California'));
 //set debug level
 $f3->set('DEBUG', 3);
 
+//connect to database
+$dbh = connect();
+
 //define a default route
 $f3->route('GET /', function() {
 
