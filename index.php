@@ -122,14 +122,13 @@ $f3->route('GET|POST /interests', function($f3) {
     $member->setBio($_SESSION['bio']);
     $_SESSION['member'] = $member;
 
-    $dbh = $_SESSION['dbh'];
-
-    $dbh->addMemeber($member);
-    print_r($member);
 
     if(isset($_SESSION['premium'])) {
         echo $template->render('pages/interests.html');
     } else {
+        $dbh = $_SESSION['dbh'];
+
+        $dbh->addMemeber($member);
         echo $template->render('pages/formSummary.html');
     }
 
