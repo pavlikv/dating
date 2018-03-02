@@ -121,6 +121,10 @@ $f3->route('GET|POST /interests', function($f3) {
     $member->setSeeking($_SESSION['seeking']);
     $member->setBio($_SESSION['bio']);
     $_SESSION['member'] = $member;
+
+    $dbh = $_SESSION['dbh'];
+
+    $dbh->addMemeber($member);
     print_r($member);
 
     if(isset($_SESSION['premium'])) {
@@ -143,7 +147,7 @@ $f3->route('GET|POST /formSummary', function($f3) {
         $member = $_SESSION['member'];
         $member->setInDoorInterests($indoors);
         $member->setOutDoorInterests($outdoors);
-        print_r($member);
+
         $_SESSION['member'] = $member;
 
         $f3->set('firstName', $_SESSION['firstName']);
@@ -160,8 +164,6 @@ $f3->route('GET|POST /formSummary', function($f3) {
         $f3->set('outdoors', $_SESSION['outdoors']);
         $f3->set('member', $_SESSION['member']);
 
-        $image = "images/photo.png";
-
         $dbh = $_SESSION['dbh'];
 
         $dbh->addMemeber($member);
@@ -174,11 +176,12 @@ $f3->route('GET|POST /formSummary', function($f3) {
 }
 );
 
-$f3->route('GET /admin', function($f3) {
+$f3->route('GET|POST /admin', function($f3) {
     $template = new Template();
-    $members = dbfunctions::getMembers();
+    $dbh = $_SESSION['dbh'];
+    $members = $dbh->getMembers();
     $f3->set('members', $members);
-    echo $template->render('views/admin.html');
+    echo $template->render('pages/admin.html');
 });
 
 

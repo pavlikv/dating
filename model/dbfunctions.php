@@ -12,7 +12,7 @@ require("/home/pvashchu/config.php");
 
 class dbfunctions
 {
-    function connect()
+    public static function connect()
     {
         try {
             //Instantiate a database object
@@ -26,29 +26,35 @@ class dbfunctions
         }
     }
 
-    function addMemeber($member) {
+    public function addMemeber($member) {
         $dbh = $this->connect();
 
         $sql = "INSERT INTO Members (fname,lname,age,gender,phone,email,state,seeking,bio,premium,image,interests)
             VALUES (:first, :last, :age, :gender, :phone, :email, :state, :seeking, :bio, :premium, :image, :interests)";
 
-        $indoor = implode(' ', (array)$member->getIndoorInterests());
-        $outdoor = implode(' ', (array)$member->getOutDoorInterests());
-        $interests = $indoor .' '. $outdoor;
 
+        if($member instanceof PremiumMember){
+            $isPremium = "on";
+            $indoor = implode(' ', (array)$member->getInDoorInterests());
+            $outdoor = implode(' ', (array)$member->getOutDoorInterests());
+            $interests = $indoor .' '. $outdoor;
+        } else {
+            $isPremium = "off";
+        }
+        $image = "NULL";
 
         $statement = $dbh->prepare($sql);
 
-        $statement->bindParam(':first', $first, PDO::PARAM_STR);
-        $statement->bindParam(':last', $last, PDO::PARAM_STR);
-        $statement->bindParam(':age', $age, PDO::PARAM_STR);
-        $statement->bindParam(':gender', $gender, PDO::PARAM_STR);
-        $statement->bindParam(':phone', $phone, PDO::PARAM_STR);
-        $statement->bindParam(':premium', $premium, PDO::PARAM_STR);
-        $statement->bindParam(':email', $email, PDO::PARAM_STR);
-        $statement->bindParam(':state', $state, PDO::PARAM_STR);
-        $statement->bindParam(':seeking', $seeking, PDO::PARAM_STR);
-        $statement->bindParam(':bio', $bio, PDO::PARAM_STR);
+        $statement->bindParam(':first', $member->getFname(), PDO::PARAM_STR);
+        $statement->bindParam(':last', $member->getLname(), PDO::PARAM_STR);
+        $statement->bindParam(':age', $member->getAge(), PDO::PARAM_STR);
+        $statement->bindParam(':gender', $member->getGender(), PDO::PARAM_STR);
+        $statement->bindParam(':phone', $member->getPhone(), PDO::PARAM_STR);
+        $statement->bindParam(':premium', $isPremium, PDO::PARAM_STR);
+        $statement->bindParam(':email', $member->getEmail(), PDO::PARAM_STR);
+        $statement->bindParam(':state', $member->getState(), PDO::PARAM_STR);
+        $statement->bindParam(':seeking', $member->getSeeking(), PDO::PARAM_STR);
+        $statement->bindParam(':bio', $member->getBio(), PDO::PARAM_STR);
         $statement->bindParam(':image', $image, PDO::PARAM_STR);
         $statement->bindParam(':interests', $interests, PDO::PARAM_STR);
 
@@ -58,25 +64,23 @@ class dbfunctions
 
     }
 
-function getMembers()
-{
-    $dbh = $this->connect();
+    public static function getMembers()
+    {
+        $dbh = dbfunctions::connect();
 
 
-    //1. define the query
-    $sql = "SELECT * FROM Members";
+        //1. define the query
+        $sql = "SELECT * FROM Members ORDER BY lname";
 
-    //2. prepare the statement
-    $statement = $dbh->prepare($sql);
+        //2. prepare the statement
+        $statement = $dbh->prepare($sql);
 
-    //3. bind parameters
+        //4. execute the statement
+        $statement->execute();
 
-    //4. execute the statement
-    $statement->execute();
-
-    //5. return the result
-    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-    //print_r($result);
-    return $result;
-}
+        //5. return the result
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+        //print_r($result);
+        return $result;
+    }
 }
