@@ -24,6 +24,7 @@ $f3->set('DEBUG', 3);
 
 //connect to database
 $dbh = new dbfunctions();
+$_SESSION['dbh'] = $dbh;
 
 //define a default route
 $f3->route('GET /', function() {
@@ -120,6 +121,7 @@ $f3->route('GET|POST /interests', function($f3) {
     $member->setSeeking($_SESSION['seeking']);
     $member->setBio($_SESSION['bio']);
     $_SESSION['member'] = $member;
+    print_r($member);
 
     if(isset($_SESSION['premium'])) {
         echo $template->render('pages/interests.html');
@@ -141,6 +143,7 @@ $f3->route('GET|POST /formSummary', function($f3) {
         $member = $_SESSION['member'];
         $member->setInDoorInterests($indoors);
         $member->setOutDoorInterests($outdoors);
+        print_r($member);
         $_SESSION['member'] = $member;
 
         $f3->set('firstName', $_SESSION['firstName']);
@@ -157,13 +160,27 @@ $f3->route('GET|POST /formSummary', function($f3) {
         $f3->set('outdoors', $_SESSION['outdoors']);
         $f3->set('member', $_SESSION['member']);
 
+        $image = "images/photo.png";
+
+        $dbh = $_SESSION['dbh'];
+
+        $dbh->addMemeber($member);
+
+
         echo $template->render('pages/formSummary.html');
     }
 
 
-
 }
 );
+
+$f3->route('GET /admin', function($f3) {
+    $template = new Template();
+    $members = dbfunctions::getMembers();
+    $f3->set('members', $members);
+    echo $template->render('views/admin.html');
+});
+
 
 //run Fat-Free
 $f3->run();
