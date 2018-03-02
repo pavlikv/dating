@@ -53,7 +53,11 @@ class Member
      * @param $name
      */
     function setFname($name){
-        $this->fname = $name;
+        $result = ctype_alpha($name);
+        if($result) {
+            $this->fname = $name;
+        }
+        $this->fname = "null";
     }
 
     /**
@@ -85,7 +89,10 @@ class Member
      * @param $newAge
      */
     function setAge($newAge){
-        $this->age = $newAge;
+        if(is_numeric($newAge)){
+            $this->age = $newAge;
+        }
+        $this->age = "0";
     }
 
 
@@ -118,7 +125,10 @@ class Member
      * @param $newPhone
      */
     function setPhone($newPhone){
-        $this->phone = $newPhone;
+        if(is_numeric($newPhone)) {
+            $this->phone = $newPhone;
+        }
+        $this->phone = "0000000000";
     }
 
     /**
