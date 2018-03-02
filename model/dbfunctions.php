@@ -35,8 +35,8 @@ class dbfunctions
 
         if($member instanceof PremiumMember){
             $isPremium = "on";
-            $indoor = implode(' ', (array)$member->getInDoorInterests());
-            $outdoor = implode(' ', (array)$member->getOutDoorInterests());
+            $indoor = implode(', ', (array)$member->getInDoorInterests());
+            $outdoor = implode(', ', (array)$member->getOutDoorInterests());
             $interests = $indoor .' '. $outdoor;
         } else {
             $isPremium = "off";

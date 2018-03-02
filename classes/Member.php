@@ -53,10 +53,12 @@ class Member
      * @param $name
      */
     function setFname($name){
+        //check if alphabetic only
         $result = ctype_alpha($name);
         if($result) {
             $this->fname = $name;
         }
+        //if not set as a null string
         $this->fname = "null";
     }
 
@@ -89,9 +91,11 @@ class Member
      * @param $newAge
      */
     function setAge($newAge){
+        //check if numeric
         if(is_numeric($newAge)){
             $this->age = $newAge;
         }
+        //if not, set 0
         $this->age = "0";
     }
 
@@ -125,9 +129,11 @@ class Member
      * @param $newPhone
      */
     function setPhone($newPhone){
+        //check if the phone number is numeric
         if(is_numeric($newPhone)) {
             $this->phone = $newPhone;
         }
+        //if not set to default, 0000000000
         $this->phone = "0000000000";
     }
 
